@@ -4,8 +4,9 @@ import { useForm } from "react-hook-form";
 
 
 
-export const CategoryForm = ({ submit }) => {
+export const CategoryForm = ({ submit, initialValue }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+
 
     return (
         <div className="flex justify-center">
@@ -20,9 +21,11 @@ export const CategoryForm = ({ submit }) => {
                                 <div>
                                     <div className="mt-[12px] flex">
                                         <input
+
                                             {...register("categoryName", { required: true, maxLength: 100 })}
-                                            className={`w-[764px] h-[44px] bg-[#F6F6FB] rounded-[6px] outline-none p-[10px] text-[15px] text-[#60607A] font-semibold ${errors.categoryName && "border border-red-500"}`}
+                                            className={`w-[764px] h-[44px] bg-[#F6F6FB] rounded-[6px] outline-none p-[10px] text-[15px] text-[#60607A] font-semibold ${errors.categoryName && "border border-pink-500"}`}
                                             type="text"
+                                            defaultValue={initialValue?.categoryName}
                                         />
                                         {errors.categoryName ? (
                                             <img className="ml-[12px]" src={vector2} alt="" />
@@ -45,8 +48,9 @@ export const CategoryForm = ({ submit }) => {
                                     </div>
                                     <div className="flex">
                                         <input
+                                            defaultValue={initialValue?.brandName}
                                             {...register("brandName", { required: true, maxLength: 40 })}
-                                            className={`w-[362px] h-[44px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] text-[15px] text-[#60607A] font-semibold  ${errors.brandName && "border border-red-500"}`} type="text" />
+                                            className={`w-[362px] h-[44px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] text-[15px] text-[#60607A] font-semibold  ${errors.brandName && "border border-pink-500"}`} type="text" />
                                         {errors.brandName ? (
                                             <img className="ml-[12px]" src={vector2} alt="img" />
                                         ) : null}
@@ -66,8 +70,9 @@ export const CategoryForm = ({ submit }) => {
                                     </div>
                                     <div className="flex">
                                         <input
+                                            defaultValue={initialValue?.cod}
                                             {...register("cod", { required: true, maxLength: 40 })}
-                                            className={`w-[362px] h-[44px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] text-[15px] text-[#60607A] font-semibold  ${errors.cod && "border border-red-500"}`} type="text" />
+                                            className={`w-[362px] h-[44px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] text-[15px] text-[#60607A] font-semibold  ${errors.cod && "border border-pink-500"}`} type="text" />
                                         {errors.cod ? (
                                             <img className="ml-[12px]" src={vector2} alt="img" />
                                         ) : null}
@@ -89,8 +94,9 @@ export const CategoryForm = ({ submit }) => {
                                     </div>
                                     <div className="flex">
                                         <input
+                                            defaultValue={initialValue?.state}
                                             {...register("state", { required: true, maxLength: 20 })}
-                                            className={`w-[362px] h-[44px] bg-[#F6F6FB] text-[15px] text-[#60607A] font-semibold  mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.state && "border border-red-500"}`} type="text" />
+                                            className={`w-[362px] h-[44px] bg-[#F6F6FB] text-[15px] text-[#60607A] font-semibold  mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.state && "border border-pink-500"}`} type="text" />
                                         {errors.state ? (
                                             <img className="ml-[12px]" src={vector2} alt="img" />
                                         ) : null}
@@ -112,8 +118,9 @@ export const CategoryForm = ({ submit }) => {
                                     </div>
                                     <div className="flex">
                                         <textarea
+                                            defaultValue={initialValue?.Description}
                                             {...register("Description", { required: true, maxLength: 1000 })}
-                                            className={`w-[764px] h-[110px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] text-[15px] text-[#60607A] font-semibold  ${errors.Description && "border border-red-500"}`}
+                                            className={`w-[764px] h-[110px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] text-[15px] text-[#60607A] font-semibold  ${errors.Description && "border border-pink-500"}`}
                                             type="text" />
 
                                         {errors.Description ? (
@@ -136,8 +143,9 @@ export const CategoryForm = ({ submit }) => {
                                         </div>
                                         <div className="flex">
                                             <input
+                                                defaultValue={initialValue?.packaging}
                                                 {...register("packaging", { required: true, maxLength: 10 })}
-                                                className={`w-[228px] h-[44px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] text-[15px] text-[#60607A] font-semibold  ${errors.packaging && "border border-red-500"}`} type="number" />
+                                                className={`w-[228px] h-[44px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] text-[15px] text-[#60607A] font-semibold  ${errors.packaging && "border border-pink-500"}`} type="number" />
                                             {errors.packaging ? (
                                                 <img className="ml-[12px]" src={vector2} alt="img" />
                                             ) : null}
@@ -157,8 +165,9 @@ export const CategoryForm = ({ submit }) => {
                                         </div>
                                         <div className="flex">
                                             <input
+                                                defaultValue={initialValue?.length11}
                                                 {...register("length11", { required: true, maxLength: 20 })}
-                                                className={`w-[228px] h-[44px] bg-[#F6F6FB] mt-[12px] text-[15px] text-[#60607A] font-semibold  rounded-[6px] outline-none p-[10px] ${errors.length11 && "border border-red-500"}`} type="text" />
+                                                className={`w-[228px] h-[44px] bg-[#F6F6FB] mt-[12px] text-[15px] text-[#60607A] font-semibold  rounded-[6px] outline-none p-[10px] ${errors.length11 && "border border-pink-500"}`} type="text" />
                                             {errors.length11 ? (
                                                 <img className="ml-[12px]" src={vector2} alt="img" />
                                             ) : null}
@@ -178,8 +187,9 @@ export const CategoryForm = ({ submit }) => {
                                         </div>
                                         <div className="flex">
                                             <input
+                                                defaultValue={initialValue?.width11}
                                                 {...register("width11", { required: true, maxLength: 10 })}
-                                                className={`w-[228px] text-[15px] text-[#60607A] font-semibold  h-[44px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.width11 && "border border-red-500"}`} type="number" />
+                                                className={`w-[228px] text-[15px] text-[#60607A] font-semibold  h-[44px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.width11 && "border border-pink-500"}`} type="number" />
                                             {errors.width11 ? (
                                                 <img className="ml-[12px]" src={vector2} alt="img" />
                                             ) : null}
@@ -199,8 +209,9 @@ export const CategoryForm = ({ submit }) => {
                                         </div>
                                         <div className="flex">
                                             <input
+                                                defaultValue={initialValue?.heavy}
                                                 {...register("heavy", { required: true, maxLength: 10 })}
-                                                className={`w-[228px] text-[15px] text-[#60607A] font-semibold  h-[44px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.heavy && "border border-red-500"}`} type="number" />
+                                                className={`w-[228px] text-[15px] text-[#60607A] font-semibold  h-[44px] bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.heavy && "border border-pink-500"}`} type="number" />
                                             {errors.heavy ? (
                                                 <img className="ml-[12px]" src={vector2} alt="img" />
                                             ) : null}
@@ -222,8 +233,9 @@ export const CategoryForm = ({ submit }) => {
                                         </div>
                                         <div className="flex">
                                             <input
+                                                defaultValue={initialValue?.imgUrl}
                                                 {...register("imgUrl", { required: true, maxLength: 1000 })}
-                                                className={`w-[764px] h-[44px] bg-[#F6F6FB] mt-[12px] text-[15px] text-[#60607A] font-semibold  rounded-[6px] outline-none p-[10px] ${errors.imgUrl && "border border-red-500"}`} type="url" />
+                                                className={`w-[764px] h-[44px] bg-[#F6F6FB] mt-[12px] text-[15px] text-[#60607A] font-semibold  rounded-[6px] outline-none p-[10px] ${errors.imgUrl && "border border-pink-500"}`} type="url" />
                                             {errors.imgUrl && (
                                                 <img className="ml-[12px]" src={vector2} alt="img" />
                                             )}
@@ -247,8 +259,9 @@ export const CategoryForm = ({ submit }) => {
                                         </div>
                                         <div className="flex">
                                             <input
+                                                defaultValue={initialValue?.vendor}
                                                 {...register("vendor", { required: true, maxLength: 20 })}
-                                                className={`w-[362px] h-[44px] bg-[#F6F6FB] text-[15px] text-[#60607A] font-semibold  mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.vendor && "border border-red-500"}`} type="text" />
+                                                className={`w-[362px] h-[44px] bg-[#F6F6FB] text-[15px] text-[#60607A] font-semibold  mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.vendor && "border border-pink-500"}`} type="text" />
                                             {errors.vendor ? (
                                                 <img className="ml-[12px]" src={vector2} alt="img" />
                                             ) : null}
@@ -268,8 +281,9 @@ export const CategoryForm = ({ submit }) => {
                                         </div>
                                         <div className="flex">
                                             <input
+                                                defaultValue={initialValue?.Barcode}
                                                 {...register("Barcode", { required: true, maxLength: 20 })}
-                                                className={`w-[362px] h-[44px] bg-[#F6F6FB] text-[15px] text-[#60607A] font-semibold  mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.Barcode && "border border-red-500"}`} type="text" />
+                                                className={`w-[362px] h-[44px] bg-[#F6F6FB] text-[15px] text-[#60607A] font-semibold  mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.Barcode && "border border-pink-500"}`} type="text" />
                                             {errors.Barcode ? (
                                                 <img className="ml-[12px]" src={vector2} alt="img" />
                                             ) : null}
@@ -292,8 +306,9 @@ export const CategoryForm = ({ submit }) => {
                                     </div>
                                     <div className="flex">
                                         <input
+                                            defaultValue={initialValue?.price}
                                             {...register("price", { required: true, maxLength: 20 })}
-                                            className={`w-[228px] h-[44px] text-[15px] text-[#60607A] font-semibold  bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.price && "border border-red-500"}`} type="text" />
+                                            className={`w-[228px] h-[44px] text-[15px] text-[#60607A] font-semibold  bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.price && "border border-pink-500"}`} type="text" />
                                         {errors.price ? (
                                             <img className="ml-[12px]" src={vector2} alt="img" />
                                         ) : null}
@@ -313,8 +328,9 @@ export const CategoryForm = ({ submit }) => {
                                     </div>
                                     <div className="flex">
                                         <input
+                                            defaultValue={initialValue?.discount}
                                             {...register("discount", { required: true, maxLength: 20 })}
-                                            className={`w-[228px] h-[44px] bg-[#F6F6FB] text-[15px] text-[#60607A] font-semibold  mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.discount && "border border-red-500"}`} type="text" />
+                                            className={`w-[228px] h-[44px] bg-[#F6F6FB] text-[15px] text-[#60607A] font-semibold  mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.discount && "border border-pink-500"}`} type="text" />
                                         {errors.discount ? (
                                             <img className="ml-[12px]" src={vector2} alt="img" />
                                         ) : null}
@@ -334,8 +350,9 @@ export const CategoryForm = ({ submit }) => {
                                     </div>
                                     <div className="flex">
                                         <input
+                                            defaultValue={initialValue?.Premium}
                                             {...register("Premium", { required: true, maxLength: 20 })}
-                                            className={`w-[228px] h-[44px] text-[15px] text-[#60607A] font-semibold  bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.Premium && "border border-red-500"}`} type="text" />
+                                            className={`w-[228px] h-[44px] text-[15px] text-[#60607A] font-semibold  bg-[#F6F6FB] mt-[12px] rounded-[6px] outline-none p-[10px] ${errors.Premium && "border border-pink-500"}`} type="text" />
                                         {errors.Premium ? (
                                             <img className="ml-[12px]" src={vector2} alt="img" />
                                         ) : null}

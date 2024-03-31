@@ -13,7 +13,6 @@ export const Category = () => {
             }
         })
     };
-
     return (
         <>
             <CategoryForm submit={submit} />

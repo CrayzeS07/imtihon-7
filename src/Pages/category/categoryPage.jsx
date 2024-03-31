@@ -2,9 +2,28 @@ import React from "react";
 import search from "../../assets/Search.svg"
 import { useGetCategorylist } from "./service/query/useGetCategorylist";
 import { Link } from "react-router-dom";
+import delete1 from "../../assets/Korzinka.svg"
+import edit from "../../assets/Edit.svg"
+import { useDeleteCateGory } from "./service/mutation/useDeleteCateGory";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify"
 
 export const CategoryPage = () => {
     const { data } = useGetCategorylist()
+    const { mutate, isPending } = useDeleteCateGory()
+    const client = useQueryClient()
+    const deleteItem = (id) => {
+        mutate(id, {
+            onSuccess: (res) => {
+                client.invalidateQueries({ queryKey: ['category-list'] })
+                toast.success("завершился успешно")
+            },
+            onError: (error) => {
+                toast.error("Произошла ошибка");
+            }
+        })
+    }
+    const EditItem = () => { }
     return (
         <>
             <div className="flex justify-center w-[100%] h-screen ">
@@ -33,24 +52,36 @@ export const CategoryPage = () => {
                     <div>
                         <div className="overflow-y-auto h-[407px]">
                             {data?.map((item) =>
-                                <div className="border-[0.5px] border-b border-[#E8E8F1] flex" key={item.id}>
-                                    <div className="ml-[40px] border-[#E8E8F1] border-b ">
-                                        <img className="w-[120px]" src={item.imgUrl} alt="" />
-                                    </div>
-                                    <div className="ml-[100px] mt-[50px] w-[80px]">
-                                        <p className="text-[12px] text-[#212121] font-medium font-mulish">{item.cod}</p>
-                                    </div>
-                                    <div className="mt-[50px] ml-[140px]">
-                                        <p className="text-[12px] text-[#212121] font-medium font-mulish">{item.vendor}</p>
-                                    </div>
-                                    <div className="mt-[50px] ml-[110px]">
-                                        <p className="text-[12px] text-[#212121] font-medium font-mulish">{item.Premium}</p>
-                                    </div>
-                                    <div className="mt-[50px] ml-[70px]">
-                                        <p className="text-[12px] text-[#212121] font-medium font-mulish">{item.discount}</p>
-                                    </div>
-                                    <div className="mt-[50px] ml-[75px]">
-                                        <p className="text-[12px] text-[#212121] font-medium font-mulish">{item.price}</p>
+                                <div key={item.id}>
+                                    <div className="border-[0.5px] border-b w-[100%] h-[110px] border-[#E8E8F1] flex">
+                                        <div className="ml-[40px] mt-[20px] border-[#E8E8F1] border-b ">
+                                            <img className="w-[120px]" src={`${item.imgUrl}`} alt="" />
+                                        </div>
+                                        <div className="ml-[120px] mt-[50px] w-[80px]">
+                                            <p className="text-[12px] text-[#212121] font-medium font-mulish">{item.cod}</p>
+                                        </div>
+                                        <div className="mt-[50px] ml-[200px] w-[139px]">
+                                            <p className="text-[12px] text-[#212121] font-medium font-mulish">{item.vendor}</p>
+                                        </div>
+                                        <div className="mt-[50px] ml-[90px] w-[162px]">
+                                            <p className="text-[12px] text-[#212121] font-medium font-mulish">{item.Premium}</p>
+                                        </div>
+                                        <div className="mt-[50px] ml-[50px] w-[162px]">
+                                            <p className="text-[12px] text-[#212121] font-medium font-mulish">{item.discount}</p>
+                                        </div>
+                                        <div className="mt-[50px] ml-[70px] w-[162px]">
+                                            <p className="text-[12px] text-[#212121] font-medium font-mulish">{item.price}</p>
+                                        </div>
+                                        <div className="flex mt-[40px] w-[167px] gap-[6px] ml-[120px]">
+                                            <div onClick={() => deleteItem(item.id)} className=" cursor-pointer w-[32px] h-[32px] bg-[#F7F7FF] rounded-[6px] flex justify-center">
+                                                <img className="w-[16px] h-[16px] mt-[8px]" src={delete1} alt="" />
+                                            </div>
+                                            <Link to={`/app/categorypage/edit/${item.id}`}>
+                                                <div className=" cursor-pointer w-[32px] h-[32px] bg-[#F7F7FF] rounded-[6px] flex justify-center">
+                                                    <img className="w-[16px] h-[16px] mt-[8px]" src={edit} alt="" />
+                                                </div>
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
                             )}
