@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 
 
 export const CategoryForm = ({ submit, initialValue }) => {
-    const { register, handleSubmit, formState: { errors } } = useForm({ defaultValue: { ...initialValue } });
+    const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues: { ...initialValue } });
 
 
     return (
@@ -25,7 +25,6 @@ export const CategoryForm = ({ submit, initialValue }) => {
                                             {...register("categoryName", { required: true, maxLength: 100 })}
                                             className={`w-[764px] h-[44px] bg-[#F6F6FB] rounded-[6px] outline-none p-[10px] text-[15px] text-[#60607A] font-semibold ${errors.categoryName && "border border-pink-500"}`}
                                             type="text"
-
                                         />
                                         {errors.categoryName ? (
                                             <img className="ml-[12px]" src={vector2} alt="" />

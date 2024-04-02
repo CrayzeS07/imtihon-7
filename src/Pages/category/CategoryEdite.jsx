@@ -18,7 +18,8 @@ export const CategoryEdite = () => {
     }
     return (
         <>
-            <CategoryForm initialValue={data} submit={submit} />
+            {isLoading ? <h2>Loading...</h2> : <CategoryForm initialValue={data} submit={submit} />}
+
         </>
     )
 }

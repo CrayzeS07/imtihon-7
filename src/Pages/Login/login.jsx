@@ -27,19 +27,19 @@ export const Login = () => {
                 </div>
                 <div className="w-[100%] h-[100vh] bg-[#ffffff]">
                     <div className="mt-[220px] flex justify-center">
-                        <h1 className="text-[25px] font-mulish font-bold text-[#5B5CE2]">Вход в админ панель</h1>
+                        <h1 className="text-[25px] font-mulish font-bold text-[#5B5CE2]">Admin Panel Login</h1>
                     </div>
                     <div className="flex justify-center">
                         <div className="w-[500px] h-[400px] border-[3px] mt-[10px] border-[#ffffff00] rounded-[10px]">
                             <form onSubmit={handleSubmit(submit)}>
                                 <div className="mt-[50px]">
-                                    <h4 className=" pl-[70px] font-mulish text-[15px] text-[#212121] font-bold">Электронная почта</h4>
+                                    <h4 className=" pl-[70px] font-mulish text-[15px] text-[#212121] font-bold">Email</h4>
                                     <div className="flex justify-center mt-[7px]">
                                         <input defaultValue={"crayzesuzb777@gmail.com"} className=" font-mulish text-[18px] text-[6b6a6a52] font-medium  w-[362px] h-[44px] bg-[#F6F6FB] border border-[#6b6a6a52] rounded-[6px] outline-none p-[10px]" {...register('email', { required: true })} type="email" />
                                     </div>
                                 </div>
                                 <div className="mt-[50px]">
-                                    <h4 className=" pl-[70px] font-mulish text-[15px] text-[#212121] font-bold">пароль</h4>
+                                    <h4 className=" pl-[70px] font-mulish text-[15px] text-[#212121] font-bold">password</h4>
                                     <div className="flex justify-center mt-[7px]">
                                         <input defaultValue={"crazy"} className=" font-mulish text-[18px] text-[6b6a6a52] font-medium  w-[362px] h-[44px] bg-[#F6F6FB] border border-[#6b6a6a52] rounded-[6px] outline-none p-[10px]" {...register('password', { required: true })} type="password" />
                                     </div>
